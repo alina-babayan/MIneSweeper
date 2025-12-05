@@ -1,4 +1,8 @@
 #include "WelcomeWindow.h"
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QMessageBox>
+#include <QFont>
 
 WelcomeWindow::WelcomeWindow(QWidget *parent)
     : QMainWindow(parent)

@@ -2,20 +2,15 @@
 #define WELCOMEWINDOW_H
 
 #include <QMainWindow>
-#include <QLabel>
 #include <QPushButton>
-#include <QVBoxLayout>
-#include <QMessageBox>
-#include <QApplication>
-#include <QHBoxLayout>
-#include <QDebug>
+#include <QLabel>
 
 class WelcomeWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    WelcomeWindow(QWidget *parent = nullptr);
+     WelcomeWindow(QWidget *parent = nullptr);
     ~WelcomeWindow();
 
 signals:
@@ -24,7 +19,6 @@ signals:
 private:
     QLabel* title;
     QLabel* chooseDiff;
-
     QPushButton* begin;
     QPushButton* intermed;
     QPushButton* expert;
@@ -33,8 +27,6 @@ private:
 
     void setupUI();
     void setupConnections();
-    void loadStyleSheet();
-
 };
 
 #endif // WELCOMEWINDOW_H

@@ -281,6 +281,7 @@ Makefile: ../../minesweeper.pro ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/f
 		../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/qt_config.prf \
 		../../../../Homework_QT/6.9.2/mingw_64/mkspecs/win32-g++/qmake.conf \
 		../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/toolchain.prf \
 		../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/default_pre.prf \
@@ -310,7 +311,6 @@ Makefile: ../../minesweeper.pro ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/f
 		../../../../Homework_QT/6.9.2/mingw_64/lib/Qt6Gui.prl \
 		../../../../Homework_QT/6.9.2/mingw_64/lib/Qt6Core.prl \
 		../../../../Homework_QT/6.9.2/mingw_64/lib/Qt6EntryPoint.prl \
-		.qmake.stash \
 		../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\..\minesweeper.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/spec_pre.prf:
@@ -524,6 +524,7 @@ Makefile: ../../minesweeper.pro ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/f
 ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/qt_config.prf:
 ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/win32-g++/qmake.conf:
 ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/toolchain.prf:
 ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/default_pre.prf:
@@ -553,7 +554,6 @@ Makefile: ../../minesweeper.pro ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/f
 ../../../../Homework_QT/6.9.2/mingw_64/lib/Qt6Gui.prl:
 ../../../../Homework_QT/6.9.2/mingw_64/lib/Qt6Core.prl:
 ../../../../Homework_QT/6.9.2/mingw_64/lib/Qt6EntryPoint.prl:
-.qmake.stash:
 ../../../../Homework_QT/6.9.2/mingw_64/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\..\minesweeper.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
