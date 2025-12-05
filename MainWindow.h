@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include "StatusPanel.h"
+#include "BoardWidget.h"
 
 class MainWindow : public QMainWindow
 {
@@ -12,7 +13,7 @@ public:
     MainWindow(int rows, int cols, int mines, const QString& difficultyName = "Beginner", QWidget *parent = nullptr);
 
 signals:
-    void backRequested();  // <-- սիգնալ back-ի համար
+    void backRequested();
 
 private slots:
     void onTimerTick();
@@ -21,6 +22,8 @@ private slots:
     void onExit();
     void onRestart();
     void onBackToMenu();
+    void handleCellLeftClicked(int row, int col);
+    void handleCellRightClicked(int row, int col);
 
 private:
     int rows;
@@ -31,6 +34,7 @@ private:
 
     QTimer *timer;
     StatusPanel *statusPanel;
+    BoardWidget *boardWidget;
 
     void startNewGame(int r, int c, int m, const QString& diffName);
 };

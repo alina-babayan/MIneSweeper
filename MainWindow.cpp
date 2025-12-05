@@ -3,6 +3,7 @@
 #include <QMenuBar>
 #include <QVBoxLayout>
 #include <QMessageBox>
+#include <QDebug>
 
 MainWindow::MainWindow(int rows, int cols, int mines, const QString& diffName, QWidget *parent)
     : QMainWindow(parent),
@@ -10,7 +11,7 @@ MainWindow::MainWindow(int rows, int cols, int mines, const QString& diffName, Q
     difficultyName(diffName)
 {
     setWindowTitle(QString("Minesweeper %1 (%2x%3)").arg(difficultyName).arg(rows).arg(cols));
-    setMinimumSize(cols * 25, rows * 25 + 100);
+    setMinimumSize(cols * 30, rows * 30 + 120);
     setStyleSheet("background-color: #2c3e50; color: #ecf0f1;");
 
     QMenu *gameMenu = menuBar()->addMenu("Game");
@@ -31,8 +32,14 @@ MainWindow::MainWindow(int rows, int cols, int mines, const QString& diffName, Q
     statusPanel = new StatusPanel(mines, difficultyName, this);
     connect(statusPanel, &StatusPanel::restartClicked, this, &MainWindow::onRestart);
     connect(statusPanel, &StatusPanel::backToMenuClicked, this, &MainWindow::onBackToMenu);
-
     layout->addWidget(statusPanel);
+
+    boardWidget = new BoardWidget(rows, cols, this);
+    layout->addWidget(boardWidget);
+
+    connect(boardWidget, &BoardWidget::cellLeftClicked, this, &MainWindow::handleCellLeftClicked);
+    connect(boardWidget, &BoardWidget::cellRightClicked, this, &MainWindow::handleCellRightClicked);
+
     layout->addStretch();
     setCentralWidget(central);
 
@@ -69,6 +76,7 @@ void MainWindow::onRestart()
     elapsedSeconds = 0;
     statusPanel->updateTimer(elapsedSeconds);
     statusPanel->setFaceState(GameState::Playing);
+    boardWidget->createGrid(rows, cols);
 }
 
 void MainWindow::onBackToMenu()
@@ -81,4 +89,14 @@ void MainWindow::startNewGame(int r, int c, int m, const QString& diffName)
     MainWindow *newGame = new MainWindow(r, c, m, diffName);
     newGame->show();
     this->close();
+}
+
+void MainWindow::handleCellLeftClicked(int row, int col)
+{
+    qDebug() << "Left clicked cell:" << row << col;
+}
+
+void MainWindow::handleCellRightClicked(int row, int col)
+{
+    qDebug() << "Right clicked cell:" << row << col;
 }

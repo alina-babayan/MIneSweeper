@@ -5,12 +5,16 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++17
 
 SOURCES += \
+    BoardWidget.cpp \
+    CellButton.cpp \
     MainWindow.cpp \
     StatusPanel.cpp \
     WelcomeWindow.cpp \
     main.cpp
 
 HEADERS += \
+    BoardWidget.h \
+    CellButton.h \
     MainWindow.h \
     StatusPanel.h \
     WelcomeWindow.h

@@ -1,0 +1,11 @@
+debug/BoardWidget.o
+debug/CellButton.o
+debug/MainWindow.o
+debug/StatusPanel.o
+debug/WelcomeWindow.o
+debug/main.o
+debug/moc_BoardWidget.o
+debug/moc_CellButton.o
+debug/moc_MainWindow.o
+debug/moc_StatusPanel.o
+debug/moc_WelcomeWindow.o
