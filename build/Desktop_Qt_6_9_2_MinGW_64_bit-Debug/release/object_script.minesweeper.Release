@@ -1,9 +1,11 @@
+release/AppManager.o
 release/BoardWidget.o
 release/CellButton.o
 release/MainWindow.o
 release/StatusPanel.o
 release/WelcomeWindow.o
 release/main.o
+release/moc_AppManager.o
 release/moc_BoardWidget.o
 release/moc_CellButton.o
 release/moc_MainWindow.o

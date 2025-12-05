@@ -1,9 +1,11 @@
+debug/AppManager.o
 debug/BoardWidget.o
 debug/CellButton.o
 debug/MainWindow.o
 debug/StatusPanel.o
 debug/WelcomeWindow.o
 debug/main.o
+debug/moc_AppManager.o
 debug/moc_BoardWidget.o
 debug/moc_CellButton.o
 debug/moc_MainWindow.o
