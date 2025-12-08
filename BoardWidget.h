@@ -1,31 +1,31 @@
 #ifndef BOARDWIDGET_H
 #define BOARDWIDGET_H
-
 #include <QWidget>
-#include <vector>
+#include <QVector>
+#include <QGridLayout>
 #include "CellButton.h"
 
-class BoardWidget : public QWidget
-{
+class BoardWidget : public QWidget {
     Q_OBJECT
 public:
-    BoardWidget(int rows, int cols, QWidget *parent = nullptr);
+    BoardWidget(int rows, int cols, QWidget* parent = nullptr);
 
-    void createGrid(int rows, int cols);
-    CellButton* getCell(int row, int col);
+    void setCellState(int row, int col, CellState state, int number = 0);
+    CellButton* getCell(int row, int col) const;
+
+    int rowsCount() const { return m_rows; }
+    int colsCount() const { return m_cols; }
+
+    void createGrid(int rows, int cols); // <-- make public
 
 signals:
     void cellLeftClicked(int row, int col);
     void cellRightClicked(int row, int col);
 
-private slots:
-    void handleLeftClick(int row, int col);
-    void handleRightClick(int row, int col);
-
 private:
-    int rows;
-    int cols;
-    std::vector<std::vector<CellButton*>> buttons;
+    int m_rows;
+    int m_cols;
+    QVector<QVector<CellButton*>> m_cells;
+    QGridLayout* m_layout{nullptr};
 };
-
-#endif // BOARDWIDGET_H
+#endif BOARDWIDGET_H

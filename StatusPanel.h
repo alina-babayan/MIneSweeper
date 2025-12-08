@@ -32,4 +32,4 @@ private:
     QPushButton *backBtn;
 };
 
-#endif // STATUSPANEL_H
+#endif  STATUSPANEL_H

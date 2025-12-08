@@ -2,27 +2,31 @@
 #define CELLBUTTON_H
 
 #include <QPushButton>
-#include <QMouseEvent>
+#include <QFont>
 
-class CellButton : public QPushButton
-{
-    Q_OBJECT
-public:
-    CellButton(int row, int col, QWidget *parent = nullptr);
-
-    int getRow() const { return row; }
-    int getCol() const { return col; }
-
-signals:
-    void leftClicked(int row, int col);
-    void rightClicked(int row, int col);
-
-protected:
-    void mousePressEvent(QMouseEvent *event) override;
-
-private:
-    int row;
-    int col;
+enum class CellState {
+    Covered,
+    Flagged,
+    RevealedEmpty,
+    RevealedNumber,
+    RevealedMine,
+    RevealedWrongFlag
 };
 
+class CellButton : public QPushButton {
+    Q_OBJECT
+public:
+    explicit CellButton(int row, int col, QWidget* parent = nullptr);
+
+    void setState(CellState state, int number = 0);
+
+    int row() const { return m_row; }
+    int col() const { return m_col; }
+
+private:
+    int m_row;
+    int m_col;
+    CellState m_state;
+    int m_number;
+};
 #endif // CELLBUTTON_H

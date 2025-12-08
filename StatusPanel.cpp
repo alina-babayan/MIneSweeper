@@ -68,3 +68,4 @@ void StatusPanel::updateTimer(int seconds)
 {
     timer->display(QString("%1").arg(seconds, 3, 10, QChar('0')));
 }
+
